@@ -6,7 +6,7 @@ from struct import pack
 from controller import Controller
 
 LARGE_INT = 2147483000
-SLIDER_SPEED = 0.01
+SLIDER_SPEED = 0.05
 
 class RomiController:
     """
@@ -82,7 +82,7 @@ class RomiController:
     async def send_arm_pos(self):
         # Update slider value
         (_, lt, rt) = self.controller.get_trigger_pos()
-        if lt != 0 and rt != 0 and self.slider[0] != 0 and self.slider[0] != 1:
+        if lt != 0 or rt != 0:
             self.slider = (
                 min(max(self.slider[0] + (lt * -SLIDER_SPEED) + (rt * SLIDER_SPEED), 0.0), 1.0), 
                 True
