@@ -91,7 +91,7 @@ The Romi has 4 slider slots, 0 corresponds to the lifting arm.
 </tbody>
 </table>
 
-### 64
+### Button Update
 Updates the button state for the given ID.
 
 The web client implementation does not dispatch this packet.
@@ -121,9 +121,30 @@ The Romi does nothing when it receives this packet.
 </tbody>
 </table>
 
-### 80
+### Heartbeat
+Keeps the websocket alive.
 
-### 96
+The web client implementation sends a heartbeat every 1 second.
+The Romi keeps track of the latest uuid sent by the client.
+
+<table>
+<thead>
+  <tr>
+    <th>Packet ID</th>
+    <th>Field Name</th>
+    <th>Field Type</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0x50</td>
+    <td>Random "UUID"</td>
+    <td>Unsigned Int</td>
+    <td>A random integer, cannot be zero.</td>
+  </tr>
+</tbody>
+</table>
 
 ## Clientbound
 
