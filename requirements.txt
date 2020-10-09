@@ -1,0 +1,3 @@
+colorama==0.4.3
+glfw==2.0.0
+websockets==8.1
