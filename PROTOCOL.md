@@ -262,7 +262,38 @@ The web client implementation is to `console.log` the data.
 </tbody>
 </table>
 
-### 30 TODO
+### Bulk Value Update
+
+
+<table>
+<thead>
+  <tr>
+    <th>Packet ID</th>
+    <th colspan="2">Field Name</th>
+    <th>Field Type</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="3">0x1e</td>
+    <td colspan="2">Number of updates (n)</td>
+    <td>Unsigned Int</td>
+    <td>The number (n) of updates to perform.</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Once for each n.</td>
+    <td>Index</td>
+    <td>Unsigned Int</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Value</td>
+    <td>Unsigned Int</td>
+    <td>The new value for the index.</td>
+  </tr>
+</tbody>
+</table>
 
 ### 29 TODO
 
