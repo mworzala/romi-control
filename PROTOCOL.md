@@ -11,6 +11,7 @@ All data sent or received should be [Little Endian](https://en.wikipedia.org/wik
 | Unsigned Int 	| 4            	|
 | Float        	| 4            	|
 | String       	| >4           	|
+| Bytes         | 0+            |
 
 ### Strings
 Strings are encoded as an int representing the length followed 
@@ -262,8 +263,56 @@ The web client implementation is to `console.log` the data.
 </tbody>
 </table>
 
-### Bulk Value Update
+### Bulk Label Update
+Updates or creates a variable number of value indices in the client value dictionary.
 
+<table>
+<thead>
+  <tr>
+    <th>Packet ID</th>
+    <th colspan="2">Field Name</th>
+    <th>Field Type</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="6">0x1d</td>
+    <td colspan="2">Number of labels (n)</td>
+    <td>Unsigned Int</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="2">Start of string data</td>
+    <td>Unsigned Int</td>
+    <td>The start position of the Raw String Data, relative to this position, AKA n * 12.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Once for each n</td>
+    <td>Index</td>
+    <td>Unsigned Int</td>
+    <td>The label index to update.</td>
+  </tr>
+  <tr>
+    <td>String Offset</td>
+    <td>Unsigned Int</td>
+    <td>The start position of the String, relative to the start of the Raw String Data.</td>
+  </tr>
+  <tr>
+    <td>String Length</td>
+    <td>Unsigned Int</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="2">Raw String Data</td>
+    <td>Bytes</td>
+    <td>All of the labels concatenated.</td>
+  </tr>
+</tbody>
+</table>
+
+### Bulk Value Update
+Updates a variable number of values in the client value dictionary.
 
 <table>
 <thead>
@@ -294,8 +343,6 @@ The web client implementation is to `console.log` the data.
   </tr>
 </tbody>
 </table>
-
-### 29 TODO
 
 ### New Value Index
 Creates a new value index in the client value dictionary.
