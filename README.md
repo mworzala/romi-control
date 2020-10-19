@@ -1,6 +1,10 @@
 # Romi Control
 An alternative control mechanism for driving the Romi (WPI RBE 1001, 2020).
 
+#### Warning
+The Romi appears to randomly disconnect when the batteries are getting low. If this happens 
+multiple times, try replacing the batteries as a first debugging step.
+
 ## Protocol
 The protocol can be found [natively here](https://github.com/WPIRoboticsEngineering/RBE1001Lib/blob/master/src/WebPage.cpp#L48), or organized in [PROTOCOL.md](https://github.com/mworzala/romi-control/blob/master/PROTOCOL.md).
 

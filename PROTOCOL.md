@@ -1,7 +1,8 @@
 # Romi Control Protocol
 
-NOTE ABOUT WEBSOCKETS
-
+The Romi uses a websocket to communicate all of these packets. The address of the websocket 
+is `ws://{ROMI_ADDRESS}/test` where `ROMI_ADDRESS` depends on the connection method. It is 
+`192.168.4.1` when running in AP mode.
 
 ## Data Types
 All data sent or received should be [Little Endian](https://en.wikipedia.org/wiki/Endianness).
